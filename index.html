@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Form Builder</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+  <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-lg">
+    <h1 class="text-3xl font-semibold text-gray-700 mb-6">Custom Form Builder</h1>
+
+    <div class="mb-6">
+      <button id="addTextField" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition-all mr-4">Add Text Field</button>
+      <button id="addSelectField" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition-all">Add Select Field</button>
+    </div>
+
+    <form id="customForm" class="space-y-4 mb-6"></form>
+
+    <button id="saveForm" class="bg-green-600 text-white px-6 py-3 rounded-lg shadow hover:bg-green-700 transition-all">Save</button>
+
+    <div class="mt-10">
+      <h2 class="text-xl font-semibold mb-4 text-gray-700">Submitted Data</h2>
+      <table id="dataTable" class="table-auto w-full border-collapse">
+       <thead>
+         <!-- Table headers will be inserted here dynamically -->
+       </thead>
+       <tbody>
+         <!-- Data rows will be inserted here dynamically -->
+       </tbody>
+     </table>
+    </div>
+  </div>
+  <div id="fieldNameModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-xl shadow-lg w-96">
+      <h3 class="text-lg font-semibold mb-4 text-gray-700">Enter Field Name</h3>
+      <input type="text" id="fieldNameInput" class="w-full border px-4 py-3 rounded-lg mb-4" placeholder="Field Name" />
+
+      <div id="selectOptionsWrapper" class="mb-4 hidden">
+        <label for="fieldOptionsInput" class="block mb-2 font-medium text-gray-700">Add Options (comma separated)</label>
+        <input type="text" id="fieldOptionsInput" class="w-full border px-4 py-3 rounded-lg" placeholder="e.g. Option 1, Option 2" />
+        <p id="fieldNameError" class="text-red-500 text-sm mt-2 hidden">Please provide at least two options, separated by commas.</p>
+      </div>
+
+      <div class="flex justify-end space-x-4">
+        <button id="cancelFieldName" class="bg-gray-300 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-400 transition-all">Cancel</button>
+        <button id="confirmFieldName" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-all">Add Field</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
